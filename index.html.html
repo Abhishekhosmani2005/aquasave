@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AquaSave | Smart Water Conservation</title>
+<style>
+:root{--navy:#123047;--teal:#087e8b;--mint:#dff7ef;--sky:#eaf7fc;--ink:#183344;--muted:#69808e;--line:#e3edf1;--white:#fff;--orange:#f4a340}
+*{box-sizing:border-box}body{margin:0;background:#f5f9fb;color:var(--ink);font-family:Inter,Segoe UI,Arial,sans-serif}button,input,select,textarea{font:inherit}button{cursor:pointer;border:0;border-radius:10px;padding:11px 15px;font-weight:650;transition:.2s}button:hover{transform:translateY(-1px)}.primary{background:var(--teal);color:white}.light{background:#e8f5f7;color:var(--teal)}.danger{background:#fff0e9;color:#a24a25}.shell{display:grid;grid-template-columns:245px 1fr;min-height:100vh}.sidebar{background:var(--navy);color:#eaf8fb;padding:28px 18px;display:flex;flex-direction:column;gap:26px}.brand{display:flex;align-items:center;gap:11px;padding:0 8px}.brandmark{width:42px;height:42px;border-radius:14px;background:#b8f1e3;color:#075a64;display:grid;place-items:center;font-size:24px}.brand h2{margin:0;font-size:20px}.brand small{color:#a9c9d2}.navlabel{font-size:11px;letter-spacing:1.8px;color:#89aebc;padding:0 12px}.nav{display:grid;gap:7px}.nav button{background:transparent;color:#bfd5dd;text-align:left;display:flex;gap:12px;align-items:center;padding:13px 14px}.nav button.active,.nav button:hover{background:#21495b;color:white}.nav .ico{font-size:18px;width:22px;text-align:center}.side-note{margin-top:auto;background:#1d4355;padding:17px;border-radius:15px;font-size:13px;color:#d4e8ed;line-height:1.5}.side-note b{display:block;color:#fff;margin-bottom:5px}.main{min-width:0}.topbar{height:76px;background:white;border-bottom:1px solid var(--line);display:flex;align-items:center;justify-content:space-between;padding:0 34px;gap:15px}.crumb{color:var(--muted);font-size:13px}.profile{display:flex;align-items:center;gap:10px;font-size:13px}.avatar{width:36px;height:36px;border-radius:50%;background:#d8f4ed;color:#087e8b;display:grid;place-items:center;font-weight:800}.content{max-width:1300px;padding:30px 34px 50px;margin:auto}.welcome{display:flex;justify-content:space-between;align-items:flex-start;gap:20px;margin-bottom:25px}.welcome h1{font-size:clamp(26px,3vw,34px);margin:0 0 8px;letter-spacing:-.8px}.welcome p{margin:0;color:var(--muted)}.datepill{background:white;border:1px solid var(--line);padding:11px 14px;border-radius:12px;font-size:13px;color:var(--muted);white-space:nowrap}.hero{background:linear-gradient(115deg,#087e8b,#0a6379 60%,#15465d);border-radius:22px;color:white;padding:28px 30px;display:grid;grid-template-columns:1.4fr .6fr;gap:20px;overflow:hidden;position:relative;margin-bottom:22px}.hero:after{content:"";position:absolute;width:270px;height:270px;border:1px solid #ffffff25;border-radius:50%;right:-70px;top:-105px;box-shadow:0 0 0 30px #ffffff09,0 0 0 60px #ffffff07}.eyebrow{font-size:11px;letter-spacing:1.8px;text-transform:uppercase;color:#b7f3e8;font-weight:800}.hero h2{font-size:clamp(24px,3vw,33px);line-height:1.2;max-width:550px;margin:12px 0}.hero p{color:#d2edf0;line-height:1.6;max-width:570px;margin:0 0 20px}.hero .primary{background:#c7f6e9;color:#075e68}.hero-art{position:relative;z-index:1;display:grid;place-items:center;font-size:120px;min-height:170px;filter:drop-shadow(0 10px 20px #003b4550)}.grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px;margin-bottom:22px}.stat{background:white;border:1px solid var(--line);border-radius:17px;padding:20px;min-width:0}.stat-head{display:flex;justify-content:space-between;align-items:center;color:var(--muted);font-size:13px;gap:8px}.stat-icon{width:38px;height:38px;display:grid;place-items:center;background:var(--sky);border-radius:12px;font-size:19px}.stat-value{font-size:clamp(24px,2.4vw,31px);font-weight:800;letter-spacing:-.7px;margin:14px 0 7px}.stat-foot{font-size:12px;color:var(--muted)}.green{color:#168768;font-weight:700}.orange{color:#b16b14;font-weight:700}.layout{display:grid;grid-template-columns:minmax(0,1.45fr) minmax(280px,.8fr);gap:18px;margin-bottom:20px}.panel{background:white;border:1px solid var(--line);border-radius:18px;padding:22px;min-width:0}.panel-head{display:flex;align-items:flex-start;justify-content:space-between;gap:12px;margin-bottom:18px}.panel h3{margin:0 0 6px;font-size:17px}.sub{color:var(--muted);font-size:13px;margin:0;line-height:1.5}.chart{height:200px;display:flex;align-items:stretch;gap:12px;padding:12px 3px 0;border-bottom:1px solid var(--line);position:relative}.bar-col{flex:1;display:flex;flex-direction:column;justify-content:flex-end;align-items:center;gap:8px;min-width:0}.bar-value{font-size:11px;color:var(--muted)}.bar{width:min(35px,75%);min-height:3px;background:linear-gradient(180deg,#4fc4c0,#087e8b);border-radius:8px 8px 3px 3px;transition:height .3s}.bar.todaybar{background:linear-gradient(180deg,#f8c36c,#e69a35)}.bar-label{font-size:11px;color:var(--muted);padding-top:10px}.legend{font-size:12px;color:var(--muted);margin-top:15px}.progressrow{margin:20px 0}.progresshead{display:flex;justify-content:space-between;gap:8px;font-size:13px;margin-bottom:9px}.track{height:8px;border-radius:99px;background:#edf3f5;overflow:hidden}.fill{height:100%;border-radius:99px;background:linear-gradient(90deg,#24b4ad,#087e8b)}.fill.warn{background:linear-gradient(90deg,#f6c16c,#e88e32)}.quick{display:grid;gap:10px}.quick button{width:100%;display:flex;align-items:center;gap:12px;text-align:left;background:#f6fafb;color:var(--ink);padding:14px;border:1px solid var(--line)}.quick button span:first-child{font-size:20px}.quick small{display:block;color:var(--muted);font-weight:400;margin-top:4px}.section{display:none}.section.active{display:block}.formgrid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}.field label{display:block;font-size:13px;font-weight:700;margin-bottom:7px}.field input,.field select,.field textarea{width:100%;padding:12px;border:1px solid #d5e3e8;border-radius:10px;background:white;color:var(--ink);outline-color:var(--teal)}.field.full{grid-column:1/-1}.form-actions{display:flex;gap:9px;flex-wrap:wrap;margin-top:18px}.notice{padding:13px 15px;border-radius:12px;background:#effaf5;color:#147555;font-size:13px;margin-top:14px;display:none}.tablewrap{overflow:auto}table{border-collapse:collapse;width:100%;font-size:13px;min-width:500px}th,td{text-align:left;padding:13px 10px;border-bottom:1px solid var(--line)}th{color:var(--muted);font-weight:650;background:#f9fbfc}.tag{display:inline-block;padding:5px 9px;border-radius:99px;font-size:11px;font-weight:750;background:#fff2df;color:#9c6316}.tag.done{background:#e3f8ee;color:#187753}.tipgrid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}.tip{padding:18px;border-radius:15px;background:#f7fbfc;border:1px solid var(--line)}.tip .emoji{font-size:26px}.tip h4{margin:12px 0 7px}.tip p{font-size:13px;color:var(--muted);line-height:1.55;margin:0}.empty{text-align:center;color:var(--muted);padding:25px 10px}.footer{text-align:center;color:var(--muted);font-size:12px;padding:25px}.toast{position:fixed;bottom:22px;right:22px;background:#123047;color:white;padding:13px 18px;border-radius:12px;box-shadow:0 8px 30px #12304730;opacity:0;transform:translateY(10px);pointer-events:none;transition:.25s;z-index:5}.toast.show{opacity:1;transform:translateY(0)}
+@media(max-width:1000px){.shell{grid-template-columns:76px 1fr}.sidebar{padding:22px 10px}.brand{justify-content:center;padding:0}.brandtext,.navlabel,.navtxt,.side-note{display:none}.nav button{justify-content:center;padding:13px 5px}.grid{grid-template-columns:repeat(2,minmax(0,1fr))}.content{padding:25px 22px}.topbar{padding:0 22px}}
+@media(max-width:700px){.shell{display:block}.sidebar{padding:10px;display:block}.brand{justify-content:flex-start;padding:5px 8px;margin-bottom:10px}.brandtext{display:block}.nav{display:flex;overflow:auto}.nav button{min-width:54px;justify-content:center}.navtxt,.navlabel,.side-note{display:none}.topbar{height:56px;padding:0 16px}.content{padding:22px 14px}.welcome{display:block}.datepill{display:inline-block;margin-top:14px}.hero{grid-template-columns:1fr;padding:24px}.hero-art{display:none}.grid{gap:10px}.stat{padding:15px}.layout{grid-template-columns:1fr}.tipgrid{grid-template-columns:1fr}.formgrid{grid-template-columns:1fr}.field.full{grid-column:auto}.panel{padding:17px}.profile .profiletext{display:none}}
+</style>
+</head>
+<body>
+<div class="shell">
+<aside class="sidebar">
+  <div class="brand"><div class="brandmark">💧</div><div class="brandtext"><h2>AquaSave</h2><small>Water intelligence</small></div></div>
+  <div>
+    <div class="navlabel">WORKSPACE</div>
+    <nav class="nav">
+      <button class="active" data-page="dashboard"><span class="ico">◫</span><span class="navtxt">Overview</span></button>
+      <button data-page="usage"><span class="ico">◉</span><span class="navtxt">Water usage</span></button>
+      <button data-page="leaks"><span class="ico">♧</span><span class="navtxt">Leak reports</span></button>
+      <button data-page="insights"><span class="ico">↗</span><span class="navtxt">Insights & tips</span></button>
+    </nav>
+  </div>
+  <div class="side-note"><b>💚 Every drop matters</b>Small daily changes can make a meaningful difference. Track usage and spot waste early.</div>
+</aside>
+
+<div class="main">
+  <div class="topbar"><div><div class="crumb">AquaSave / <span id="crumb">Overview</span></div></div><div class="profile"><div class="avatar">AS</div><div class="profiletext"><b>Household dashboard</b><br><span style="color:#69808e">Water conservation</span></div></div></div>
+  <main class="content">
+    <section class="section active" id="dashboard">
+      <div class="welcome"><div><h1>Good day, water saver 👋</h1><p>Make every drop count. Here's your household water snapshot.</p></div><div class="datepill" id="todayDate"></div></div>
+      <div class="hero"><div><div class="eyebrow">YOUR WATER · YOUR IMPACT</div><h2>Save water today for a better tomorrow.</h2><p>Track daily usage, record leaks and build smarter habits — all in one place.</p><button class="primary" onclick="go('usage')">＋ Record water usage</button></div><div class="hero-art">💧🌿</div></div>
+      <div class="grid">
+        <div class="stat"><div class="stat-head">Today's usage <span class="stat-icon">💧</span></div><div class="stat-value" id="todayUsage">0 L</div><div class="stat-foot">Total recorded today</div></div>
+        <div class="stat"><div class="stat-head">This month <span class="stat-icon">📅</span></div><div class="stat-value" id="monthUsage">0 L</div><div class="stat-foot">Sum of recorded entries</div></div>
+        <div class="stat"><div class="stat-head">Open leak reports <span class="stat-icon">🔧</span></div><div class="stat-value" id="openLeaks">0</div><div class="stat-foot">Need follow-up</div></div>
+        <div class="stat"><div class="stat-head">Entries recorded <span class="stat-icon">✓</span></div><div class="stat-value" id="entryCount">0</div><div class="stat-foot">Usage records saved</div></div>
+      </div>
+      <div class="layout">
+        <div class="panel"><div class="panel-head"><div><h3>Water usage trend</h3><p class="sub">Your last seven days of recorded consumption</p></div><span class="tag">Litres</span></div><div class="chart" id="chart"></div><div class="legend">Daily totals are calculated from your saved entries. Add records to populate the chart.</div></div>
+        <div class="panel"><div class="panel-head"><div><h3>Quick actions</h3><p class="sub">Keep your household water records up to date</p></div></div><div class="quick"><button onclick="go('usage')"><span>💧</span><span><b>Add water usage</b><small>Record daily consumption</small></span></button><button onclick="go('leaks')"><span>🛠️</span><span><b>Report a leak</b><small>Log a tap, pipe or tank issue</small></span></button><button onclick="go('insights')"><span>🌱</span><span><b>View saving tips</b><small>Explore practical water habits</small></span></button></div></div>
+      </div>
+      <div class="panel"><div class="panel-head"><div><h3>Recent activity</h3><p class="sub">Latest usage and leakage records</p></div><button class="light" onclick="go('usage')">View usage</button></div><div id="recentActivity"></div></div>
+    </section>
+
+    <section class="section" id="usage">
+      <div class="welcome"><div><h1>Water usage</h1><p>Record household consumption and review your recent entries.</p></div></div>
+      <div class="layout">
+        <div class="panel"><div class="panel-head"><div><h3>＋ Add a usage record</h3><p class="sub">Use your meter reading or a reasonable estimate.</p></div></div>
+          <form id="usageForm"><div class="formgrid">
+            <div class="field"><label for="useDate">Date</label><input id="useDate" type="date" required></div>
+            <div class="field"><label for="litres">Water used (litres)</label><input id="litres" type="number" min="1" step="1" placeholder="e.g. 450" required></div>
+            <div class="field"><label for="people">People in household</label><input id="people" type="number" min="1" step="1" placeholder="e.g. 4"></div>
+            <div class="field"><label for="source">How was it measured?</label><select id="source"><option>Estimated usage</option><option>Water meter</option><option>Water bill</option></select></div>
+            </div><div class="form-actions"><button class="primary">Save usage record</button><button type="button" class="light" onclick="fillDemo()">Load demo data</button></div><div class="notice" id="usageNotice"></div></form>
+        </div>
+        <div class="panel"><h3>💡 Helpful reminder</h3><p class="sub">Try recording usage at a consistent time each day. If you enter total household litres, use the same method each time to make comparisons more meaningful.</p><div class="progressrow"><div class="progresshead"><span>Records saved</span><b id="recordBadge">0</b></div><div class="track"><div class="fill" id="recordProgress" style="width:0%"></div></div></div><p class="sub">AquaSave is a prototype: it does not read a physical water meter automatically.</p></div>
+      </div>
+      <div class="panel"><div class="panel-head"><div><h3>Usage history</h3><p class="sub">All saved household consumption records</p></div><button class="danger" onclick="clearUsages()">Clear usage</button></div><div class="tablewrap" id="usageTable"></div></div>
+    </section>
+
+    <section class="section" id="leaks">
+      <div class="welcome"><div><h1>Leak reports</h1><p>Record water leakage issues and track whether they have been fixed.</p></div></div>
+      <div class="layout">
+        <div class="panel"><h3>🛠️ Report a water issue</h3><p class="sub" style="margin-bottom:18px">Include a clear location so the issue can be found quickly.</p>
+          <form id="leakForm"><div class="formgrid">
+            <div class="field"><label for="leakLocation">Location</label><input id="leakLocation" placeholder="e.g. Kitchen sink" required></div>
+            <div class="field"><label for="leakType">Issue type</label><select id="leakType"><option>Leaking tap</option><option>Broken pipe</option><option>Tank overflow</option><option>Running toilet</option><option>Other</option></select></div>
+            <div class="field full"><label for="leakDesc">Description</label><textarea id="leakDesc" rows="3" placeholder="What did you notice?"></textarea></div>
+            </div><div class="form-actions"><button class="primary">Submit report</button></div><div class="notice" id="leakNotice"></div></form>
+        </div>
+        <div class="panel"><h3>📌 Why report leaks?</h3><p class="sub">A small leak can continue wasting water until it is repaired. Logging the issue helps households remember what needs attention.</p><div class="progressrow"><div class="progresshead"><span>Pending</span><b id="pendingNum">0</b></div><div class="track"><div class="fill warn" id="pendingBar" style="width:0%"></div></div></div><div class="progressrow"><div class="progresshead"><span>Resolved</span><b id="resolvedNum">0</b></div><div class="track"><div class="fill" id="resolvedBar" style="width:0%"></div></div></div></div>
+      </div>
+      <div class="panel"><div class="panel-head"><div><h3>Leakage register</h3><p class="sub">Update the status when an issue has been repaired.</p></div></div><div class="tablewrap" id="leakTable"></div></div>
+    </section>
+
+    <section class="section" id="insights">
+      <div class="welcome"><div><h1>Insights & water-saving tips</h1><p>Turn everyday actions into better water habits.</p></div></div>
+      <div class="grid" style="grid-template-columns:repeat(auto-fit,minmax(190px,1fr))">
+        <div class="stat"><div class="stat-head">Average recorded use <span class="stat-icon">📊</span></div><div class="stat-value" id="averageUsage">0 L</div><div class="stat-foot">Per entry, not a meter reading</div></div>
+        <div class="stat"><div class="stat-head">Usage this month <span class="stat-icon">💧</span></div><div class="stat-value" id="insightMonth">0 L</div><div class="stat-foot">Based on records entered</div></div>
+        <div class="stat"><div class="stat-head">Leak issues fixed <span class="stat-icon">✓</span></div><div class="stat-value" id="fixedCount">0</div><div class="stat-foot">Marked as resolved</div></div>
+      </div>
+      <div class="panel" style="margin-bottom:18px"><h3>🌿 Practical ways to save water</h3><p class="sub" style="margin-bottom:20px">Choose habits that fit your household. Actual savings vary with usage and local conditions.</p><div class="tipgrid">
+        <article class="tip"><div class="emoji">🚿</div><h4>Shorten showers</h4><p>Reduce shower time and turn water off while soaping up.</p></article>
+        <article class="tip"><div class="emoji">🔧</div><h4>Fix leaks promptly</h4><p>Check taps, toilet cisterns and exposed pipes regularly.</p></article>
+        <article class="tip"><div class="emoji">🪥</div><h4>Turn off the tap</h4><p>Do not leave water running while brushing or scrubbing.</p></article>
+        <article class="tip"><div class="emoji">🪣</div><h4>Use a bucket</h4><p>Where practical, use a bucket instead of a running hose.</p></article>
+        <article class="tip"><div class="emoji">🌱</div><h4>Reuse suitable water</h4><p>Reuse safe, appropriate household water for plants when possible.</p></article>
+        <article class="tip"><div class="emoji">🚰</div><h4>Prevent tank overflow</h4><p>Check storage tanks and arrange a timely shutoff or repair.</p></article>
+      </div></div>
+      <div class="panel"><h3>How AquaSave works</h3><div class="layout" style="margin:15px 0 0"><div><span class="tag">INPUT</span><p class="sub" style="margin-top:10px">Daily water use, date, household size and leak reports.</p></div><div><span class="tag done">PROCESSING → OUTPUT</span><p class="sub" style="margin-top:10px">The site saves records, calculates totals and shows a dashboard, history and issue status.</p></div></div></div>
+    </section>
+    <div class="footer">AquaSave · Student environmental studies prototype · Save water, one habit at a time.</div>
+  </main>
+</div>
+</div>
+<div class="toast" id="toast"></div>
+<script>
+const $=id=>document.getElementById(id);
+const todayISO=()=>{const d=new Date();return new Date(d.getTime()-d.getTimezoneOffset()*60000).toISOString().slice(0,10)};
+const load=(k)=>{try{return JSON.parse(localStorage.getItem(k))||[]}catch{return[]}};
+let usages=load('aquasave_v2_usages'), leaks=load('aquasave_v2_leaks');
+const save=()=>{localStorage.setItem('aquasave_v2_usages',JSON.stringify(usages));localStorage.setItem('aquasave_v2_leaks',JSON.stringify(leaks))};
+const fmt=n=>Number(n||0).toLocaleString('en-IN');
+const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+function toast(msg){$('toast').textContent=msg;$('toast').classList.add('show');setTimeout(()=>$('toast').classList.remove('show'),2500)}
+function go(page){document.querySelectorAll('.section').forEach(s=>s.classList.toggle('active',s.id===page));document.querySelectorAll('.nav button').forEach(b=>b.classList.toggle('active',b.dataset.page===page));$('crumb').textContent=({dashboard:'Overview',usage:'Water usage',leaks:'Leak reports',insights:'Insights & tips'})[page];window.scrollTo({top:0,behavior:'smooth'});render()}
+document.querySelectorAll('.nav button').forEach(b=>b.addEventListener('click',()=>go(b.dataset.page)));
+function dayOffset(i){const d=new Date();d.setDate(d.getDate()-i);return new Date(d.getTime()-d.getTimezoneOffset()*60000).toISOString().slice(0,10)}
+function dayTotal(date){return usages.filter(u=>u.date===date).reduce((a,u)=>a+u.litres,0)}
+function render(){
+ const today=todayISO(), month=today.slice(0,7), open=leaks.filter(l=>!l.resolved), fixed=leaks.filter(l=>l.resolved);
+ $('todayDate').textContent=new Date().toLocaleDateString('en-IN',{weekday:'short',day:'numeric',month:'short',year:'numeric'});
+ $('todayUsage').textContent=fmt(dayTotal(today))+' L';
+ $('monthUsage').textContent=fmt(usages.filter(u=>u.date.startsWith(month)).reduce((a,u)=>a+u.litres,0))+' L';
+ $('openLeaks').textContent=open.length;$('entryCount').textContent=usages.length;
+ $('averageUsage').textContent=(usages.length?fmt(Math.round(usages.reduce((a,u)=>a+u.litres,0)/usages.length)):0)+' L';
+ $('insightMonth').textContent=$('monthUsage').textContent;$('fixedCount').textContent=fixed.length;
+ $('recordBadge').textContent=usages.length;$('recordProgress').style.width=Math.min(100,usages.length*10)+'%';
+ $('pendingNum').textContent=open.length;$('resolvedNum').textContent=fixed.length;
+ const totalLeaks=Math.max(1,leaks.length);$('pendingBar').style.width=(open.length/totalLeaks*100)+'%';$('resolvedBar').style.width=(fixed.length/totalLeaks*100)+'%';
+ const days=Array.from({length:7},(_,i)=>dayOffset(6-i)), vals=days.map(dayTotal), max=Math.max(1,...vals);
+ $('chart').innerHTML=days.map((d,i)=>`<div class="bar-col"><span class="bar-value">${vals[i]?fmt(vals[i]):''}</span><div class="bar ${d===today?'todaybar':''}" style="height:${Math.max(vals[i]?5:2,vals[i]/max*135)}px" title="${d}: ${vals[i]} L"></div><span class="bar-label">${new Date(d+'T12:00:00').toLocaleDateString('en-IN',{weekday:'short'})}</span></div>`).join('');
+ const activity=[...usages.map(u=>({date:u.date,type:'Usage recorded',detail:fmt(u.litres)+' litres',sort:u.date})),...leaks.map(l=>({date:l.created,type:'Leak report',detail:l.location,sort:l.created}))].sort((a,b)=>b.sort.localeCompare(a.sort)).slice(0,5);
+ $('recentActivity').innerHTML=activity.length?activity.map(a=>`<div class="record"><b>${esc(a.type)}</b> · ${esc(a.detail)}<div class="sub">${esc(a.date)}</div></div>`).join(''):'<div class="empty">Your recent activity will appear here when you add records.</div>';
+ $('usageTable').innerHTML=usages.length?`<table><thead><tr><th>Date</th><th>Water used</th><th>People</th><th>Measurement</th><th></th></tr></thead><tbody>${[...usages].sort((a,b)=>b.date.localeCompare(a.date)).map(u=>`<tr><td>${esc(u.date)}</td><td><b>${fmt(u.litres)} L</b></td><td>${u.people||'—'}</td><td>${esc(u.source||'Estimated usage')}</td><td><button class="danger" onclick="deleteUsage('${u.id}')">Delete</button></td></tr>`).join('')}</tbody></table>`:'<div class="empty">No usage records yet. Add one above or load demo data.</div>';
+ $('leakTable').innerHTML=leaks.length?`<table><thead><tr><th>Location</th><th>Issue</th><th>Date</th><th>Status</th><th>Action</th></tr></thead><tbody>${[...leaks].reverse().map(l=>`<tr><td>${esc(l.location)}</td><td>${esc(l.type)}</td><td>${esc(l.created)}</td><td><span class="tag ${l.resolved?'done':''}">${l.resolved?'Resolved':'Pending'}</span></td><td>${l.resolved?'—':`<button class="light" onclick="resolveLeak('${l.id}')">Mark fixed</button>`}</td></tr>`).join('')}</tbody></table>`:'<div class="empty">No leak reports yet. Use the form above to log an issue.</div>';
+}
+$('usageForm').addEventListener('submit',e=>{e.preventDefault();const date=$('useDate').value,litres=Number($('litres').value),people=Number($('people').value)||null;if(!date||!Number.isInteger(litres)||litres<1){toast('Enter a valid date and positive whole number of litres.');return}usages.push({id:Date.now().toString(36)+Math.random().toString(36).slice(2,7),date,litres,people,source:$('source').value});save();render();$('usageForm').reset();$('useDate').value=todayISO();$('usageNotice').style.display='block';$('usageNotice').textContent='Usage record saved successfully.';toast('Water usage saved')});
+$('leakForm').addEventListener('submit',e=>{e.preventDefault();leaks.push({id:Date.now().toString(36)+Math.random().toString(36).slice(2,7),location:$('leakLocation').value.trim(),type:$('leakType').value,description:$('leakDesc').value.trim(),created:todayISO(),resolved:false});save();render();$('leakForm').reset();$('leakNotice').style.display='block';$('leakNotice').textContent='Leak report added. Remember to follow up on the repair.';toast('Leak report saved')});
+function resolveLeak(id){leaks=leaks.map(l=>l.id===id?{...l,resolved:true}:l);save();render();toast('Leak report marked resolved')}
+function deleteUsage(id){usages=usages.filter(u=>u.id!==id);save();render();toast('Usage record deleted')}
+function clearUsages(){if(confirm('Delete all usage records? This cannot be undone.')){usages=[];save();render();toast('Usage history cleared')}}
+function fillDemo(){if(usages.length&&!confirm('Add demo records to your existing data?'))return;for(let i=0;i<7;i++){const date=dayOffset(i);usages.push({id:'demo'+i+'_'+Date.now(),date,litres:[390,420,365,480,405,375,410][i],people:4,source:'Estimated usage'})}if(!leaks.length){leaks.push({id:'demoleak1',location:'Bathroom tap',type:'Leaking tap',description:'Slow drip noticed',created:todayISO(),resolved:false},{id:'demoleak2',location:'Overhead tank',type:'Tank overflow',description:'Float valve checked and repaired',created:dayOffset(2),resolved:true})}save();render();toast('Demo data added — replace with real entries when testing')}
+$('useDate').value=todayISO();render();
+</script>
+</body>
+</html>
